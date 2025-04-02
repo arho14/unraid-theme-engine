@@ -403,12 +403,12 @@ Custom color base0F:
 
 
 Custom styling (advanced):
-: <textarea id="themecss" spellcheck="false" rows="10"><?php $filename="/boot/config/plugins/theme.engine/themes/${ThemeEngine['themename']}-${display['theme']}.css";if(file_exists($filename)){echo file_get_contents($filename);} ?></textarea>
+: <textarea id="themecss" spellcheck="false" rows="10"><?php $filename="/boot/config/plugins/theme.engine/themes/{$ThemeEngine['themename']}-{$display['theme']}.css";if(file_exists($filename)){echo file_get_contents($filename);} ?></textarea>
 </div>
 </div>
 
 &nbsp;
-: <input type="checkbox" id="exportcheckbox"> Export to Saved Themes <span id="themespan"><?php if(is_file("/boot/config/plugins/theme.engine/themes/${ThemeEngine['themename']}-${display['theme']}.cfg")) { echo "(this will overwrite ${ThemeEngine['themename']}-${display['theme']}!)"; } ?></span>
+: <input type="checkbox" id="exportcheckbox"> Export to Saved Themes <span id="themespan"><?php if(is_file("/boot/config/plugins/theme.engine/themes/{$ThemeEngine['themename']}-{$display['theme']}.cfg")) { echo "(this will overwrite {$ThemeEngine['themename']}-{$display['theme']}!)"; } ?></span>
 
 <input type="submit" name="#default" value="Clear Settings" onclick="disableOnSubmit();" style="color:#fff;background-color:#890008">
 : <input type="submit" name="#apply" id="applysettings" value="Apply" disabled><input type="button" id="done" value="Done" onclick="donezo()"> <a id="saveToFile" class="advanced">Download current confirguration as Zip File</a> <span class="advanced">(Apply changes first)</span>

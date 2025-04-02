@@ -136,8 +136,8 @@ img{-webkit-filter:grayscale(<?=$grayscale?>%);filter:grayscale(<?=$grayscale?>%
 
 
 if ($ThemeEngine['customstyle'] == "1") {
-	if ( is_file("/boot/config/plugins/theme.engine/themes/${ThemeEngine['themename']}-${display['theme']}.css") ) {
-		include "/boot/config/plugins/theme.engine/themes/${ThemeEngine['themename']}-${display['theme']}.css";
+	if ( is_file("/boot/config/plugins/theme.engine/themes/{$ThemeEngine['themename']}-{$display['theme']}.css") ) {
+		include "/boot/config/plugins/theme.engine/themes/{$ThemeEngine['themename']}-{$display['theme']}.css";
 	}
 
 }
