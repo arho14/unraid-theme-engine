@@ -101,11 +101,34 @@ Current settings will be overwriten.
 <form markdown="1" name="display_settings" method="POST" action="/update.php" target="progressFrame">
 <input type="hidden" name="#file" value="dynamix/dynamix.cfg">
 <input type="hidden" name="#section" value="display">
+<?
+	$baseThemePath = "$docroot/webGui/styles/themes/*.css"; // CSS theme structure refactors w/ CSS vars introduced in 7.1.0-RC1
+	$legacyBaseThemePath = "$docroot/webGui/styles/dynamix-*.css";
+	$usedLegacyThemePath = false;
+	$baseThemeFiles = [];
+	// Try new theme path first
+	$themesDir = dirname($baseThemePath);
+	if (is_dir($themesDir) && is_readable($themesDir)) {
+		$baseThemeFiles = glob($baseThemePath);
+	}
+	// Fall back to legacy path if needed
+	if (empty($baseThemeFiles)) {
+		$legacyDir = dirname($legacyBaseThemePath);
+		if (is_dir($legacyDir) && is_readable($legacyDir)) {
+			$baseThemeFiles = glob($legacyBaseThemePath);
+			$usedLegacyThemePath = true;
+		}
+	}
+	// Ensure we have an array even if glob fails
+	if (!is_array($baseThemeFiles)) {
+		$baseThemeFiles = [];
+	}
+?>
 Base Theme:
 : <select name="theme" size="1" id="BaseTheme">
-  <?foreach (glob("$docroot/webGui/styles/dynamix-*.css") as $themes):?>
-  <?$theme = substr(basename($themes,'.css'),8);?>
-  <?=mk_option($display['theme'], $theme, ucfirst($theme))?>
+  <?foreach ($baseThemeFiles as $theme):?>
+  <?$themeName = $usedLegacyThemePath ? substr(basename($theme,'.css'),8) : basename($theme,'.css');?>
+  <?=mk_option($display['theme'], $themeName, ucfirst($themeName))?>
   <?endforeach;?>
   </select>
 
