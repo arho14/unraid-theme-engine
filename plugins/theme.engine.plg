@@ -2,15 +2,19 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name "theme.engine">
 <!ENTITY author "Justin Nolan / Skitals">
-<!ENTITY version "2023.01.17">
-<!ENTITY md5 "1418c490b47fe7947a704e3f4186a190">
+<!ENTITY version "2025.05.20">
+<!ENTITY md5 "4c9f3e7e0bb46d705613558535a10c02">
 <!ENTITY launch "Settings/ThemeEngine">
 <!ENTITY plugdir "/usr/local/emhttp/plugins/&name;">
-<!ENTITY github "Skitals/unraid-theme-engine">
+<!ENTITY github "arho14/unraid-theme-engine">
 <!ENTITY pluginURL "https://raw.githubusercontent.com/&github;/master/plugins/&name;.plg">
 ]>
 <PLUGIN name="&name;" author="&author;" version="&version;" launch="&launch;" pluginURL="&pluginURL;" icon="paint-brush" min="6.7.0" support="https://forums.unraid.net/topic/87126-plugin-theme-engine-a-webgui-styler/">
 <CHANGES>
+###2025.05.20 (author:zackspear)
+- Fix: deprecation warnings for string interpolation
+- Feat: update base theme selection logic to support 7.1.0's new CSS theme structure
+
 ###2023.01.17
 - Fix grep warning (Thanks uraid).  
   
